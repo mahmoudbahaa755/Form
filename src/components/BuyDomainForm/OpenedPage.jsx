@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { Box, Modal, Button } from "@mui/material";
 import DomainForm from "./DomainForm";
@@ -35,9 +34,7 @@ export default function OpenedPage() {
 
       <Modal
         open={open}
-        onClose={handleClose}
-        // aria-labelledby="modal-modal-title"
-        // aria-describedby="modal-modal-description"
+        onClose={handleClose} 
         style={{
           display: "flex",
           border:'0px solid',

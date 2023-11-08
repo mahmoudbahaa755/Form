@@ -1,5 +1,5 @@
 
-import { Box, Drawer, List, ListItem, ListItemIcon } from '@mui/material';
+import { Box,  List, ListItem, ListItemIcon } from '@mui/material';
 import HomeSVG from '../../elements/svg/HomeSVG';
 import BoxSVG from '../../elements/svg/BoxSVG';
 import ActivitySVG from '../../elements/svg/ActivitySVG';
@@ -36,9 +36,7 @@ function SideNavBar() {
             justifyContent='space-around'
    >
 
-                <List 
-                    // display='flex' flexDirection='column'
-                    // justifyContent='center'
+                <List  
                >
                     {icons.map((Icon, index) => (
                         <ListItem key={index}>
@@ -47,7 +45,7 @@ function SideNavBar() {
                     ))}
                 </List>
                     <LogoutSVG/>
-            {/* // </Drawer> */}
+         
             </Box>
         </Box>
     );
