@@ -1,4 +1,3 @@
-import React,{useState} from "react";
 import { useForm ,Controller} from "react-hook-form";
 
 import {
@@ -15,7 +14,6 @@ import {
   FormLabel,
   Typography
 } from "@mui/material";
-// import {addData} from '../../components/mainTable/data'
 
 export default function DomainForm() {
  
@@ -38,7 +36,6 @@ export default function DomainForm() {
     reset,
     handleSubmit,
     formState: { errors },
-    // fieldState:{}
   } = useForm();
 
  
