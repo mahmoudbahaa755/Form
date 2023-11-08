@@ -1,4 +1,4 @@
-'use client';
+
 import { Box, Drawer, List, ListItem, ListItemIcon } from '@mui/material';
 import HomeSVG from '../../elements/svg/HomeSVG';
 import BoxSVG from '../../elements/svg/BoxSVG';
