@@ -45,8 +45,8 @@ export default function MainTable() {
         '& .MuiDataGrid-row':{
           borderRadius:' 11px',
           background: '#FFF',
-          height: '70px',
           marginTop: '20.4px',
+          height: '70px',
           '&:hover':{
           boxShadow: '1px 17px 44px 0px rgba(3, 2, 41, 0.07)',
           },
