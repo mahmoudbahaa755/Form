@@ -1,11 +1,11 @@
-import { Box, Button, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import OpenedPage from "../BuyDomainForm/OpenedPage";
 
 export default function SubHeader() {
     return (
         <Box sx={{ padding: '0 1rem'}}>
             <Grid container alignItems="center" mt={7} justifyContent="space-between">
-                <Grid item={false}>
+                <Grid item>
                     <Typography variant="h7" component="div" gutterBottom>
                         Dashboard/domains
                     </Typography>
@@ -14,8 +14,7 @@ export default function SubHeader() {
                     </Typography>
                 </Grid>
                 <Grid item>
-                   
-                     <OpenedPage />
+                    <OpenedPage />
                 </Grid>
             </Grid>
         </Box>

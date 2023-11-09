@@ -48,79 +48,78 @@ export default function DomainForm() {
     console.log(data);
     reset();
   }
-  return (
-    <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ padding: "0 1rem", width: "100%" }}>
-      <FormControl  >
-        <Grid container spacing={2}>
-        {formFields.map((field) => (
-            <Grid item xs={12} sm={field.gridSize} key={field.name}>
-              {field.name}
-              <Controller
-              rules={{required:true}}
-                name={field.name}
-                control={control}
-                defaultValue=""
-                render={({ field , fieldState: { error } }) => <TextField 
-                color={error ? "error" : "secondary"}
-                helperText={error ? error.message : ""}
-                size="small"
-                InputProps={{
-                  style: { borderRadius: 50 
-                  ,
-                height:'40px'}
-                }}
-                id={field.name}
-                fullWidth
-                {...field} />}
-              />
-           
-              {errors[field.name] && <Typography color='red' fontSize={10}>{field.name} is required</Typography>}
+  const COUNTRIES = ["Egypt", "UK", "USA", "Canada", "Other"];
+
+  
+    return (
+      <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ padding: "0 1rem", width: "100%" }}>
+        <FormControl>
+          <Grid container spacing={2}>
+            {formFields.map((field) => (
+              <Grid item xs={12} sm={field.gridSize} key={field.name}>
+                {field.name}
+                <Controller
+                  rules={{required:true}}
+                  name={field.name}
+                  control={control}
+                  defaultValue=""
+                  render={({ field , fieldState: { error } }) => (
+                    <TextField 
+                      color={error ? "error" : "secondary"}
+                      helperText={error ? error.message : ""}
+                      size="small"
+                      InputProps={{
+                        style: { borderRadius: 50, height:'40px'}
+                      }}
+                      id={field.name}
+                      fullWidth
+                      {...field}
+                    />
+                  )}
+                />
+                {errors[field.name] && <Typography color='red' fontSize={10}>{field.name} is required</Typography>}
+              </Grid>
+            ))}
+            <Grid item xs={12}>
+              <FormControl fullWidth>
+                Country
+                <Select
+                  labelId="country-label"
+                  defaultValue="Egypt"
+                  id="country"
+                  sx={{
+                    borderRadius: 50,
+                    height: "40px",
+                  }}
+                  label='Country'
+                  {...register("Country", { required: true })}
+                >
+                  {COUNTRIES.map((country) => (
+                    <MenuItem value={country} key={country}>{country}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
-          ))}
-    
-         
-          <Grid item xs={12}>
-            <FormControl fullWidth>
-             Country
-              <Select
-                labelId="country-label"
-                defaultValue="Egypt"
-                id="country"
-                sx={{
-                  borderRadius: 50,
-                  height: "40px",
-                }}
-                label='Country'
-                {...register("Country", { required: true })}
-              >
-                <MenuItem value="Egypt">Egypt</MenuItem>
-                <MenuItem value="UK">UK</MenuItem>
-                <MenuItem value="USA">USA</MenuItem>
-                <MenuItem value="Canada">Canada</MenuItem>
-                <MenuItem value="Other">Other</MenuItem>
-              </Select>
-            </FormControl>
+            <Grid item xs={12}>
+              <Box display="flex" justifyContent="center">
+                <Button
+                  variant="contained"
+                  color="success"
+                  type="submit"
+                  sx={{
+                    borderRadius: "21px",
+                    textTransform: "none",
+                    width: "160px",
+                    height: "40px",
+                  }}
+                >
+                  Buy Now
+                </Button>
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-          <Box display="flex" justifyContent="center">
-    <Button
-      variant="contained"
-      color="success"
-      type="submit"
-      onClick={handleSubmit(onSubmit)}
-      sx={{
-        borderRadius: "21px",
-        textTransform: "none",
-        width: "160px",
-        height: "40px",
-      }}
-    >
-      Buy Now
-    </Button>
-  </Box>
-          </Grid>
-        </Grid>
-      </FormControl>
-    </Box>
-  );
-}
+        </FormControl>
+      </Box>
+    );
+  }
+
